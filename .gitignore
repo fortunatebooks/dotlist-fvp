@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+.next
+out
+.herenow
+coverage
+tsconfig.tsbuildinfo
+.test-build
+playwright-report
+test-results
+output/_scratch
+
+.env
+.env.*
+!.env.example
