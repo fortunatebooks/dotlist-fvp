@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-const { defineConfig, devices } = require(
-  `${process.env.PLAYWRIGHT_SHARED_ROOT || "/Users/davidellis/.local/share/coding-agents/playwright"}/node_modules/playwright/test`,
-);
+const { defineConfig, devices } = require("@playwright/test");
 
 module.exports = defineConfig({
   testDir: "./e2e",

@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "rm -rf .test-build && tsc --project tsconfig.test.json && node --test .test-build/tests/*.test.js",
-    "test:browser": "/Users/davidellis/.local/share/coding-agents/playwright/scripts/playwright-shared test --config=playwright.config.cjs"
+    "test:browser": "playwright test --config=playwright.config.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -27,6 +27,7 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

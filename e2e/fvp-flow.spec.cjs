@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-const { test, expect } = require(
-  `${process.env.PLAYWRIGHT_SHARED_ROOT || "/Users/davidellis/.local/share/coding-agents/playwright"}/node_modules/playwright/test`,
-);
+const { test, expect } = require("@playwright/test");
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/app");
