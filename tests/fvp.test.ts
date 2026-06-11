@@ -241,6 +241,37 @@ test("mergeStates keeps deleted tasks deleted", () => {
   assert.deepEqual(merged.deletedTaskIds, ["tray"]);
 });
 
+test("mergeStates uses a recent remote active session when the local one is stale", () => {
+  const staleStartedAt = new Date(Date.now() - 13 * 60 * 60 * 1000).toISOString();
+  const recentStartedAt = new Date(Date.now() - 60 * 1000).toISOString();
+  const local: FvpState = {
+    ...createEmptyState(),
+    tasks: [task("local", "Local task")],
+    activeSession: {
+      id: "session_local",
+      taskId: "local",
+      taskTitle: "Local task",
+      startedAt: staleStartedAt,
+    },
+    updatedAt: "2026-05-11T11:00:00.000Z",
+  };
+  const remote: FvpState = {
+    ...createEmptyState(),
+    tasks: [task("remote", "Remote task")],
+    activeSession: {
+      id: "session_remote",
+      taskId: "remote",
+      taskTitle: "Remote task",
+      startedAt: recentStartedAt,
+    },
+    updatedAt: "2026-05-11T10:00:00.000Z",
+  };
+
+  const merged = mergeStates(local, remote);
+
+  assert.equal(merged.activeSession?.id, "session_remote");
+});
+
 test("archiveCurrentChain stores active dotted task titles", () => {
   const state: FvpState = {
     ...createEmptyState(),
