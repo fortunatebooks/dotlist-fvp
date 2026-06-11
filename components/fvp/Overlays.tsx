@@ -157,7 +157,7 @@ export function HelpDialog({ controller }: { controller: FvpController }) {
             <span key={line}>{line}</span>
           ))}
         </div>
-        <a className="supportLink" href="mailto:support@example.com">
+        <a className="supportLink" href="https://github.com/fortunatebooks/dotlist-fvp/issues">
           Contact support
         </a>
       </div>
