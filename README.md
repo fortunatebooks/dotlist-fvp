@@ -29,9 +29,10 @@ npm test
 npm run build
 ```
 
-Browser tests use the shared Playwright wrapper configured in `playwright.config.cjs`:
+Browser tests use Playwright with the project config in `playwright.config.cjs`:
 
 ```bash
+npx playwright install chromium
 npm run test:browser
 ```
 
@@ -48,6 +49,8 @@ The core open source algorithm lives in `lib/fvp.ts`. The app shell and views li
 ## Storage
 
 Dotlist FVP stores state in `localStorage` under `fvp.state.v1`. It also listens for storage changes from other tabs and merges task/session records by id. There is intentionally no database code in this public webapp version.
+
+Exported JSON contains your task titles and work-session history. Treat exports as personal data and avoid attaching them to public issues unless you have removed private details.
 
 ## Documentation
 

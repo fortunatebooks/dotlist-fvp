@@ -18,6 +18,13 @@ npm test
 npm run build
 ```
 
+If you change the browser flow, install the Playwright Chromium browser once and run the end-to-end tests:
+
+```bash
+npx playwright install chromium
+npm run test:browser
+```
+
 ## Project Scope
 
 Dotlist FVP is intentionally local-first and self-contained. Please avoid adding account systems, databases, paid-service requirements, or hidden network calls unless the project explicitly changes direction in public.
